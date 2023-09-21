@@ -1,4 +1,7 @@
+"use client";
 import Image from "next/image";
+import { checkout } from "../../checkout";
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -35,6 +38,21 @@ export default function Home() {
             height={400}
           />
         </div>
+
+        <button
+          onClick={() => {
+            checkout({
+              lineItems: [
+                {
+                  price: "price_1NsmwQAfl5FA0CKJR94GUiWK",
+                  quantity: 1,
+                },
+              ],
+            });
+          }}
+        >
+          BUY!
+        </button>
       </div>
     </main>
   );
